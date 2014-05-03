@@ -7,12 +7,13 @@ SkuQuantity = require './sku_quantity'
 
 
 ProductSchema = new Schema {
-  sku: { type: ObjectId, ref: Sku }
-  skus_per: Number
+  sku: { type: ObjectId, ref: Sku, required: true }
+  skus_per: { type: Number, min: 1, required: true, default: 1 }
   uom: {
-    count: Number
-    unit_type: String
+    count: { type: Number, required: true, min: 1, default: 1 }
+    unit_type: { type: String, required: true }
   }
+#  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 ProductSchema.virtual('name').get ->

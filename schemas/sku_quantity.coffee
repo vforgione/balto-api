@@ -6,10 +6,11 @@ Sku = require './sku'
 
 
 SkuQuantitySchema = new Schema {
-  sku: { type: ObjectId, ref: Sku }
-  on_shelf: Number
-  in_carts: Number
-  to_be_picked: Number
+  sku: { type: ObjectId, ref: Sku, required: true }
+  on_shelf: { type: Number, required: true, default: 0 }
+  in_carts: { type: Number, required: true, default: 0 }
+  to_be_picked: { type: Number, required: true, default: 0 }
+#  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 SkuQuantitySchema.virtual('available_for_sale').get ->
