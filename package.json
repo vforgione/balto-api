@@ -1,11 +1,21 @@
 {
   "name": "balto-api",
   "version": "0.0.0",
+
   "private": true,
+  "author": "Vince Forgione <v.forgione@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/vforgione/balto-api"
+  },
+  "homepage": "https://github.com/vforgione/balto-api",
+  "bugs": "https://github.com/vforgione/balto-api/issues",
+
   "scripts": {
     "start": "node app.js",
     "test": "make test"
   },
+
   "dependencies": {
     "express": "3.5.2",
     "mangusu": "^0.1.0",
