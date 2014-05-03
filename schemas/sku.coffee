@@ -1,14 +1,32 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
+ObjectId = Schema.Types.ObjectId
+Mixed = Schema.Types.Mixed
 
 
 SkuSchema = new Schema {
-  number: Number
-  name: String
+  number: { type: Number, required: true }
+  name: { type: String, required: true }
   uom: {
-    count: Number
-    unit_type: String
+    count: { type: Number, required: true, min: 1, default: 1 }
+    unit_type: { type: String, required: true }
   }
+  brand: { type: ObjectId, ref: Brand, required: true }
+  vendors: [
+    {
+      vendor: { type: ObjectId, ref: Vendor }
+      number: Number
+    }
+  ]
+  tags: [
+    {
+      internal: String
+      public: String
+    }
+  ]
+  attributes: Mixed
+  images: [ String ]
+#  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 

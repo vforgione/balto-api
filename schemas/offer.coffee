@@ -7,11 +7,20 @@ Product = require './product'
 
 OfferSchema = new Schema {
   products: [{
-    product: { type: ObjectId, ref: Product }
-    qty: Number
+    product: { type: ObjectId, ref: Product, required: true }
+    qty: { type: Number, required: true, min: 1, default: 1 }
   }]
-  weight: Number
-  price: Number
+  weight: { type: Number, required: true }
+  price: { type: Number, required: true }
+  tags: [
+    {
+      internal: String
+      public: String
+    }
+  ]
+  text: String
+  images: [ String ]
+#  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 OfferSchema.virtual('name').get ->
