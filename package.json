@@ -4,6 +4,7 @@
 
   "private": true,
   "author": "Vince Forgione <v.forgione@gmail.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "http://github.com/vforgione/balto-api"
