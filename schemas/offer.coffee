@@ -2,6 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
+Diff = require './diff'
 Product = require './product'
 
 
@@ -20,7 +21,7 @@ OfferSchema = new Schema {
   ]
   text: String
   images: [ String ]
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 OfferSchema.virtual('name').get ->

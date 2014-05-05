@@ -2,6 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
+Diff = require './diff'
 Offer = require './offer'
 
 
@@ -25,12 +26,13 @@ DealSchema = new Schema {
     }
   ]
   images: [ String ]
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 DealSchema.virtual('price').get ->
-  min = Math.min [offer.price for offer in @offers]
-  max = Math.max [offer.price for offer in @offers]
+  offers = [offer.price for offer in @offers]
+  min = Math.min offers
+  max = Math.max offers
   if min == max then "$#{min}"
   else "$#{min} - $#{max}"
 

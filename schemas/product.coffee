@@ -2,6 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
+Diff = require './diff'
 Sku = require './sku'
 SkuQuantity = require './sku_quantity'
 
@@ -13,14 +14,14 @@ ProductSchema = new Schema {
     count: { type: Number, required: true, min: 1, default: 1 }
     unit_type: { type: String, required: true }
   }
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 ProductSchema.virtual('name').get ->
   @sku.name
 
 ProductSchema.virtual('available_for_sale').get ->
-  SkuQuantity.find { sku: @sku._id }, (err, sq) ->
+  SkuQuantity.findOne { sku: @sku._id }, (err, sq) ->
     throw new Error(err.message) if err
     Math.floor sq.available_for_sale / @skus_per
 
