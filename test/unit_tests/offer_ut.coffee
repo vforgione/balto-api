@@ -10,6 +10,7 @@ describe 'Offer', ->
     prod = new Product
     prod.sku = new Sku
     offer.products.push { product: prod, qty: 1 }
+    offer.tags.push { internal: '', public: '' }
 
   it 'has an _id property', (done) ->
     offer.should.have.property '_id'
@@ -17,6 +18,34 @@ describe 'Offer', ->
 
   it 'has a products array', (done) ->
     offer.should.have.property 'products'
+    done()
+
+  it 'has a weight property', (done) ->
+    offer.should.have.property 'weight'
+    done()
+
+  it 'has a price property', (done) ->
+    offer.should.have.property 'price'
+    done()
+
+  it 'has a tags array', (done) ->
+    offer.should.have.property 'tags'
+    done()
+
+  it 'has an images array', (done) ->
+    offer.should.have.property 'images'
+    done()
+
+  it 'has a text property', (done) ->
+    offer.should.have.property 'text'
+    done()
+
+  it 'has a name virtual property', (done) ->
+    offer.should.have.property 'name'
+    done()
+
+  it 'has a computed available_for_sale virtual property', (done) ->
+    offer.should.have.property 'available_for_sale'
     done()
 
   describe 'Offer.products', ->
@@ -29,18 +58,12 @@ describe 'Offer', ->
       offer.products[0].should.have.property 'qty'
       done()
 
-  it 'has a weight property', (done) ->
-    offer.should.have.property 'weight'
-    done()
+  describe 'Offer.tags', ->
 
-  it 'has a price property', (done) ->
-    offer.should.have.property 'price'
-    done()
+    it 'has an internal property', (done) ->
+      offer.tags[0].should.have.property 'internal'
+      done()
 
-  it 'has a name virtual property', (done) ->
-    offer.should.have.property 'name'
-    done()
-
-  it 'has a computed available_for_sale virtual property', (done) ->
-    offer.should.have.property 'available_for_sale'
-    done()
+    it 'has a public property', (done) ->
+      offer.tags[0].should.have.property 'public'
+      done()

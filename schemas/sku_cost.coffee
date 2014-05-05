@@ -11,6 +11,7 @@ SkuCostSchema = new Schema {
     {
       cost: { type: Number, required: true, default: 0 }
       qty: { type: Number, required: true, default: 1 }
+      date: { type: Date, required: true, default: Date.now }
     }
   ]
   position: { type: Number, required: true, default: 0 }

@@ -4,7 +4,10 @@ describe 'Sku', ->
 
   before ->
     Sku = require '../../schemas/sku'
+    Vendor = require '../../schemas/vendor'
     sku = new Sku
+    sku.vendors.push { vendor: new Vendor, number: "123" }
+    sku.tags.push { internal: 'stuff', public: '' }
 
   it 'has an _id property', (done) ->
     sku.should.have.property '_id'
@@ -22,6 +25,22 @@ describe 'Sku', ->
     sku.should.have.property 'uom'
     done()
 
+  it 'has a brand reference', (done) ->
+    sku.should.have.property 'brand'
+    done()
+
+  it 'has a vendors object', (done) ->
+    sku.should.have.property 'vendors'
+    done()
+
+  it 'has an images array', (done) ->
+    sku.should.have.property 'images'
+    done()
+
+  it 'has a tags array', (done) ->
+    sku.should.have.property 'tags'
+    done()
+
   describe 'Sku.uom', ->
 
     it 'has a count property', (done) ->
@@ -30,4 +49,24 @@ describe 'Sku', ->
 
     it 'has a unit_type property', (done) ->
       sku.uom.should.have.property 'unit_type'
+      done()
+
+  describe 'Sku.vendors', ->
+
+    it 'has a vendor reference', (done) ->
+      sku.vendors[0].should.have.property 'vendor'
+      done()
+
+    it 'has a number property', (done) ->
+      sku.vendors[0].should.have.property 'number'
+      done()
+
+  describe 'Sku.tags', ->
+
+    it 'has an internal property', (done) ->
+      sku.tags[0].should.have.property 'internal'
+      done()
+
+    it 'has a public property', (done) ->
+      sku.tags[0].should.have.property 'public'
       done()
