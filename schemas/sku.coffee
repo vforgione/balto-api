@@ -3,6 +3,7 @@ Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 Mixed = Schema.Types.Mixed
 
+Diff = require './diff'
 Brand = require './brand'
 Vendor = require './vendor'
 
@@ -29,7 +30,7 @@ SkuSchema = new Schema {
   ]
   attributes: Mixed
   images: [ String ]
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 

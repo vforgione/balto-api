@@ -2,6 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
+Diff = require './diff'
 Sku = require './sku'
 
 
@@ -15,7 +16,7 @@ SkuCostSchema = new Schema {
     }
   ]
   position: { type: Number, required: true, default: 0 }
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 

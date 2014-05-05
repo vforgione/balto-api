@@ -2,6 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
+Diff = require './diff'
 Sku = require './sku'
 
 
@@ -10,7 +11,7 @@ SkuQuantitySchema = new Schema {
   on_shelf: { type: Number, required: true, default: 0 }
   in_carts: { type: Number, required: true, default: 0 }
   to_be_picked: { type: Number, required: true, default: 0 }
-#  history: [ { type: ObjectId, ref: Diff } ]
+  history: [ { type: ObjectId, ref: Diff } ]
 }
 
 SkuQuantitySchema.virtual('available_for_sale').get ->
