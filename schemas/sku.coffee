@@ -3,6 +3,9 @@ Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 Mixed = Schema.Types.Mixed
 
+Brand = require './brand'
+Vendor = require './vendor'
+
 
 SkuSchema = new Schema {
   number: { type: Number, required: true }

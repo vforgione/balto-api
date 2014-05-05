@@ -5,14 +5,14 @@ ObjectId = Schema.Types.ObjectId
 Offer = require './offer'
 
 
-STATES: [ 'In Development', 'Proposed', 'Rejected', 'Awaiting Shipment', 'Queued', 'Live', 'Done' ]
+#STATES: [ 'In Development', 'Proposed', 'Rejected', 'Awaiting Shipment', 'Queued', 'Live', 'Done' ]
 
 
 DealSchema = new Schema {
   title: { type: String, required: true }
   offers: [{ type: ObjectId, ref: Offer }]
   text: String
-  state: { type: String, required: true, enum: STATES }
+  state: { type: String, required: true } #, enum: STATES }
   starts_on: Date
   ends_on: Date
   after_ends_do: String

@@ -2,7 +2,10 @@ express = require 'express'
 http = require 'http'
 mongoose = require 'mongoose'
 
+BrandResource = require './resources/brand_resource'
+VendorResource = require './resources/vendor_resource'
 SkuResource = require './resources/sku_resource'
+SkuCostResource = require './resources/sku_cost_resource'
 SkuQuantityResource = require './resources/sku_quantity_resource'
 ProductResource = require './resources/product_resource'
 OfferResource = require './resources/offer_resource'
@@ -27,7 +30,10 @@ app.use express.errorHandler()
 
 
 # routes
+BrandResource.make_routes app
+VendorResource.make_routes app
 SkuResource.make_routes app
+SkuCostResource.make_routes app
 SkuQuantityResource.make_routes app
 ProductResource.make_routes app
 OfferResource.make_routes app
