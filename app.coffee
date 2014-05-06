@@ -10,6 +10,10 @@ SkuQuantityResource = require './resources/sku_quantity_resource'
 ProductResource = require './resources/product_resource'
 OfferResource = require './resources/offer_resource'
 DealResource = require './resources/deal_resource'
+WarehouseResource = require './resources/warehouse_resource'
+ContactResource = require './resources/contact_resource'
+PurchaseOrderResource = require './resources/purchase_order_resource'
+ReceivedShipmentResource = require './resources/received_shipment_resource'
 
 
 app = express()
@@ -38,6 +42,10 @@ SkuQuantityResource.make_routes app
 ProductResource.make_routes app
 OfferResource.make_routes app
 DealResource.make_routes app
+WarehouseResource.make_routes app
+ContactResource.make_routes app
+PurchaseOrderResource.make_routes app
+ReceivedShipmentResource.make_routes app
 
 
 http.createServer(app).listen app.get('port'), ->
