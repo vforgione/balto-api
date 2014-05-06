@@ -19,6 +19,10 @@ describe 'Brand', ->
     brand.should.have.property 'tags'
     done()
 
+  it 'has a history array', (done) ->
+    brand.should.have.property 'history'
+    done()
+
   describe 'Brand.tags', ->
 
     it 'has an internal property', (done) ->

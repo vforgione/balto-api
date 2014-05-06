@@ -2,6 +2,7 @@ express = require 'express'
 http = require 'http'
 mongoose = require 'mongoose'
 
+DiffResource = require './resources/diff_resource'
 BrandResource = require './resources/brand_resource'
 VendorResource = require './resources/vendor_resource'
 SkuResource = require './resources/sku_resource'
@@ -14,6 +15,7 @@ WarehouseResource = require './resources/warehouse_resource'
 ContactResource = require './resources/contact_resource'
 PurchaseOrderResource = require './resources/purchase_order_resource'
 ReceivedShipmentResource = require './resources/received_shipment_resource'
+ProposalResource = require './resources/proposal_resource'
 
 
 app = express()
@@ -34,6 +36,7 @@ app.use express.errorHandler()
 
 
 # routes
+DiffResource.make_routes app
 BrandResource.make_routes app
 VendorResource.make_routes app
 SkuResource.make_routes app
@@ -46,6 +49,7 @@ WarehouseResource.make_routes app
 ContactResource.make_routes app
 PurchaseOrderResource.make_routes app
 ReceivedShipmentResource.make_routes app
+ProposalResource.make_routes app
 
 
 http.createServer(app).listen app.get('port'), ->

@@ -11,6 +11,14 @@ describe 'Deal', ->
     deal.should.have.property '_id'
     done()
 
+  it 'has a buyer property', (done) ->
+    deal.should.have.property 'buyer'
+    done()
+
+  it 'has a proposal reference', (done) ->
+    deal.should.have.property 'proposal'
+    done()
+
   it 'has an offers array', (done) ->
     deal.should.have.property 'offers'
     done()
@@ -57,6 +65,10 @@ describe 'Deal', ->
 
   it 'has a computed price virtual property', (done) ->
     deal.should.have.property 'price'
+    done()
+
+  it 'has a history array', (done) ->
+    deal.should.have.property 'history'
     done()
 
   describe 'Deal.tags', ->

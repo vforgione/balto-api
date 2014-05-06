@@ -38,3 +38,7 @@ describe 'SkuCost', ->
     it 'has a date property', (done) ->
       sku_cost.costs[0].should.have.property 'date'
       done()
+
+  it 'has a history array', (done) ->
+    sku_cost.should.have.property 'history'
+    done()

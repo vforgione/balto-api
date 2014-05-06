@@ -32,6 +32,10 @@ describe 'Product', ->
     prod.should.have.property 'available_for_sale'
     done()
 
+  it 'has a history array', (done) ->
+    prod.should.have.property 'history'
+    done()
+
   describe 'Product.uom', ->
 
     it 'has a count property', (done) ->

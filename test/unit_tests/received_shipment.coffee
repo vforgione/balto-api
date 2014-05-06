@@ -32,6 +32,10 @@ describe 'ReceivedShipment', ->
     ship.should.have.property 'note'
     done()
 
+  it 'has a history array', (done) ->
+    ship.should.have.property 'history'
+    done()
+
   describe 'ReceivedShipment.line_items', ->
 
     it 'has a sku reference', (done) ->

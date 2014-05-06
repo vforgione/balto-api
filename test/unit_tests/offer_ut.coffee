@@ -48,6 +48,10 @@ describe 'Offer', ->
     offer.should.have.property 'available_for_sale'
     done()
 
+  it 'has a history array', (done) ->
+    offer.should.have.property 'history'
+    done()
+
   describe 'Offer.products', ->
 
     it 'has a product reference', (done) ->

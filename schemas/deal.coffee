@@ -4,6 +4,7 @@ ObjectId = Schema.Types.ObjectId
 
 Diff = require './diff'
 Offer = require './offer'
+Proposal = require './proposal'
 
 
 #STATES: [ 'In Development', 'Proposed', 'Rejected', 'Awaiting Shipment', 'Queued', 'Live', 'Done' ]
@@ -11,7 +12,9 @@ Offer = require './offer'
 
 DealSchema = new Schema {
   title: { type: String, required: true }
-  offers: [{ type: ObjectId, ref: Offer }]
+  buyer: { type: String, required: true }
+  proposal: { type: ObjectId, ref: Proposal }
+  offers: [ { type: ObjectId, ref: Offer } ]
   text: String
   state: { type: String, required: true } #, enum: STATES }
   starts_on: Date
