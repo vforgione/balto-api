@@ -14,6 +14,7 @@ WarehouseResource = require './resources/warehouse_resource'
 ContactResource = require './resources/contact_resource'
 PurchaseOrderResource = require './resources/purchase_order_resource'
 ReceivedShipmentResource = require './resources/received_shipment_resource'
+ProposalResource = require './resources/proposal_resource'
 
 
 app = express()
@@ -46,6 +47,7 @@ WarehouseResource.make_routes app
 ContactResource.make_routes app
 PurchaseOrderResource.make_routes app
 ReceivedShipmentResource.make_routes app
+ProposalResource.make_routes app
 
 
 http.createServer(app).listen app.get('port'), ->
