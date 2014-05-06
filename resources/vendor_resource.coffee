@@ -2,5 +2,7 @@ Resource = require 'mangusu'
 
 Vendor = require '../schemas/vendor'
 
+DiffResource = require './diff_resource'
 
-module.exports = new Resource Vendor, 'vendors'
+
+module.exports = new Resource Vendor, 'vendors', { refs: { history: DiffResource } }

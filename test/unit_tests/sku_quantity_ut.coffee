@@ -29,3 +29,7 @@ describe 'SkuQuantity', ->
   it 'has a computed available_for_sale virtual property', (done) ->
     sku.should.have.property 'available_for_sale'
     done()
+
+  it 'has a history array', (done) ->
+    sku.should.have.property 'history'
+    done()

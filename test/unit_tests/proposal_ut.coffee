@@ -49,3 +49,7 @@ describe 'Proposal', ->
   it 'has a tags array', (done) ->
     prop.should.have.property 'tags'
     done()
+
+  it 'has a history array', (done) ->
+    prop.should.have.property 'history'
+    done()

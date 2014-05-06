@@ -67,6 +67,10 @@ describe 'Deal', ->
     deal.should.have.property 'price'
     done()
 
+  it 'has a history array', (done) ->
+    deal.should.have.property 'history'
+    done()
+
   describe 'Deal.tags', ->
 
     it 'has an internal property', (done) ->

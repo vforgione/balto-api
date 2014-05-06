@@ -41,6 +41,10 @@ describe 'Sku', ->
     sku.should.have.property 'tags'
     done()
 
+  it 'has a history array', (done) ->
+    sku.should.have.property 'history'
+    done()
+
   describe 'Sku.uom', ->
 
     it 'has a count property', (done) ->

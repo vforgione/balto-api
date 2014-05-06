@@ -18,6 +18,10 @@ describe 'Warehouse', ->
     house.should.have.property 'address'
     done()
 
+  it 'has a history array', (done) ->
+    house.should.have.property 'history'
+    done()
+
   describe 'Warehouse.address', ->
 
     it 'has an street1 property', (done) ->

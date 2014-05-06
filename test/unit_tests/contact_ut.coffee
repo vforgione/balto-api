@@ -38,6 +38,10 @@ describe 'Contact', ->
     contact.should.have.property 'represents'
     done()
 
+  it 'has a history array', (done) ->
+    contact.should.have.property 'history'
+    done()
+
   describe 'Contact.address', ->
 
     it 'has an street1 property', (done) ->

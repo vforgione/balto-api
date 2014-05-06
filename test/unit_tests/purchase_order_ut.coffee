@@ -60,6 +60,10 @@ describe 'PurchaseOrder', ->
     po.should.have.property 'line_items'
     done()
 
+  it 'has a history array', (done) ->
+    po.should.have.property 'history'
+    done()
+
   describe 'PurchaseOrder.line_items', ->
 
     it 'has a sku reference', (done) ->

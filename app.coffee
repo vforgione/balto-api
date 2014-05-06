@@ -2,6 +2,7 @@ express = require 'express'
 http = require 'http'
 mongoose = require 'mongoose'
 
+DiffResource = require './resources/diff_resource'
 BrandResource = require './resources/brand_resource'
 VendorResource = require './resources/vendor_resource'
 SkuResource = require './resources/sku_resource'
@@ -35,6 +36,7 @@ app.use express.errorHandler()
 
 
 # routes
+DiffResource.make_routes app
 BrandResource.make_routes app
 VendorResource.make_routes app
 SkuResource.make_routes app
