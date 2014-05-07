@@ -20,6 +20,7 @@ CustomerResource = require './resources/customer_resource'
 CartResource = require './resources/cart_resource'
 SalesOrderResource = require './resources/sales_order_resource'
 ParcelResource = require './resources/parcel_resource'
+SubscriptionResource = require './resources/subscription_resource'
 
 
 app = express()
@@ -58,6 +59,7 @@ CustomerResource.make_routes app
 CartResource.make_routes app
 SalesOrderResource.make_routes app
 ParcelResource.make_routes app
+SubscriptionResource.make_routes app 
 
 
 http.createServer(app).listen app.get('port'), ->
