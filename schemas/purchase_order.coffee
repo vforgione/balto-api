@@ -50,7 +50,9 @@ PurchaseOrderSchema.virtual('total').get ->
     else
       disc = parseFloat @discount
       subtotal -= disc
-  tax_rate = parseFloat @tax / 100
+  if @tax?
+    tax_rate = parseFloat @tax / 100
+  else tax_rate = 0
   tax_cost = subtotal * tax_rate
   subtotal + tax_cost
 
