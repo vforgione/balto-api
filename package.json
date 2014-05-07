@@ -13,7 +13,7 @@
   "bugs": "https://github.com/vforgione/balto-api/issues",
 
   "scripts": {
-    "start": "node app.js",
+    "start": "./node_modules/.bin/coffee -c ./; node app.js",
     "test": "make test"
   },
 
