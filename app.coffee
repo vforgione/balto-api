@@ -27,7 +27,7 @@ DogResource = require './resources/dog_resource'
 app = express()
 
 
-mongoose.connect process.env.MONGODB_CONNECTION_STRING or 'mongodb://localhost:27017/balto-dev'
+mongoose.connect process.env.MONGOHQ_URL or 'mongodb://localhost:27017/balto-dev'
 
 
 app.set 'port', process.env.PORT or 3000

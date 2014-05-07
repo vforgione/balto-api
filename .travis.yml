@@ -1,4 +1,14 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+- '0.11'
+- '0.10'
+deploy:
+  provider: heroku
+  api_key:
+    secure: JxE32niMIGjB6QCKoOjjyJoihDkv9CmiHoYey+EC+8noHIMxkYdCUKblOGuLXvlu+WMuSBgiWT2tIAktxw9xAd1YuugKwCk5xDU3ZJHI6pv5l5odSpB/7Tp+QwX2Aj+THKkd+CPuHxQBCDz8gzMm1rBhic4qJnybCXHdUZxnETE=
+  app:
+    master: balto-api-stage
+  run:
+    - "npm install"
+    - "coffee -c ./"
+  strategy: git
