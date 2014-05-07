@@ -6,10 +6,6 @@ describe 'Parcel', ->
     Parcel = require '../../schemas/parcel'
     parcel = new Parcel
 
-  it 'has an _id property', (done) ->
-    parcel.should.have.property '_id'
-    done()
-
   it 'has a products array', (done) ->
     parcel.should.have.property 'products'
     done()

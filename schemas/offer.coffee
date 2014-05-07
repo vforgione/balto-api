@@ -7,10 +7,9 @@ Product = require './product'
 
 
 OfferSchema = new Schema {
-  products: [{
+  products: [ {
     product: { type: ObjectId, ref: Product, required: true }
-    qty: { type: Number, required: true, min: 1, default: 1 }
-  }]
+    quantity: { type: Number, required: true, min: 1, default: 1 } } ]
   weight: { type: Number, required: true }
   price: { type: Number, required: true }
   tags: [
@@ -25,10 +24,24 @@ OfferSchema = new Schema {
 }
 
 OfferSchema.virtual('name').get ->
-  [prod.name for prod in @products].join ', '
+  pq = {}
+  for p in @products
+    pq[p.product] = p.quantity
+  Product.find { _id : { $in: [p.product for p in @products] } }, (err, products) ->
+    throw new Error err.message if err
+    name = []
+    for p in products
+      qty = pq[p._id]
+      name.push "#{qty} #{p.name}"
+    name.join ', '
 
 OfferSchema.virtual('available_for_sale').get ->
-  Math.min [ Math.floor(prod.product.available_for_sale / prod.qty) for prod in @products ]
+  pq = {}
+  for p in @products
+    pq[p.product] = p.quantity
+  Product.find { _id : { $in: [p.product for p in @products] } }, (err, products) ->
+    throw new Error err.message if err
+    parseInt Math.min [ Math.floor(p.available_for_sale / pq[p._id]) for p in products ]
 
 
 module.exports = mongoose.model 'Offer', OfferSchema

@@ -7,10 +7,6 @@ describe 'Deal', ->
     deal = new Deal
     deal.tags.push { internal: '', public: '' }
 
-  it 'has an _id property', (done) ->
-    deal.should.have.property '_id'
-    done()
-
   it 'has a buyer property', (done) ->
     deal.should.have.property 'buyer'
     done()

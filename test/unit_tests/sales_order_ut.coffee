@@ -6,10 +6,6 @@ describe 'SalesOrder', ->
     SalesOrder = require '../../schemas/sales_order'
     so = new SalesOrder
 
-  it 'has an _id property', (done) ->
-    so.should.have.property '_id'
-    done()
-
   it 'has a cart reference', (done) ->
     so.should.have.property 'cart'
     done()

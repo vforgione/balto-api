@@ -8,10 +8,6 @@ describe 'PurchaseOrder', ->
     po = new PurchaseOrder
     po.line_items.push { sku: new Sku, qty: 1, unit_price: 1 }
 
-  it 'has an _id property', (done) ->
-    po.should.have.property '_id'
-    done()
-
   it 'has a creator property', (done) ->
     po.should.have.property 'creator'
     done()
@@ -70,8 +66,8 @@ describe 'PurchaseOrder', ->
       po.line_items[0].should.have.property 'sku'
       done()
 
-    it 'has a qty property', (done) ->
-      po.line_items[0].should.have.property 'qty'
+    it 'has a quantity property', (done) ->
+      po.line_items[0].should.have.property 'quantity'
       done()
 
     it 'has a unit_price property', (done) ->

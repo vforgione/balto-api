@@ -7,12 +7,9 @@ Diff = require './diff'
 
 BrandSchema = new Schema {
   name: { type: String, required: true, unique: true }
-  tags: [
-    {
-      internal: String
-      public: String
-    }
-  ]
+  tags: [ {
+    internal: String
+    public: String } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
 

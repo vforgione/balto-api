@@ -6,10 +6,6 @@ describe 'Dog', ->
     Dog = require '../../schemas/dog'
     dog = new Dog
 
-  it 'has an _id property', (done) ->
-    dog.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     dog.should.have.property 'name'
     done()

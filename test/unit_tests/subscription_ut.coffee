@@ -6,10 +6,6 @@ describe 'Subscription', ->
     Subscription = require '../../schemas/subscription'
     sub = new Subscription
 
-  it 'has an _id property', (done) ->
-    sub.should.have.property '_id'
-    done()
-
   it 'has a customer reference', (done) ->
     sub.should.have.property 'customer'
     done()

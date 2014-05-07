@@ -14,8 +14,7 @@ WarehouseSchema = new Schema {
     city: { type: String, required: true }
     state: { type: String, required: true }
     postal_code: { type: String, required: true }
-    country: String
-  }
+    country: String }
   history: [ { type: ObjectId, ref: Diff } ]
 }
 

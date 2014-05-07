@@ -6,10 +6,6 @@ describe 'SkuQuantity', ->
     SkuQuantity = require '../../schemas/sku_quantity'
     sku = new SkuQuantity
 
-  it 'has an _id property', (done) ->
-    sku.should.have.property '_id'
-    done()
-
   it 'has a sku reference', (done) ->
     sku.should.have.property 'sku'
     done()

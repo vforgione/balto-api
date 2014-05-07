@@ -6,10 +6,6 @@ describe 'Contact', ->
     Contact = require '../../schemas/contact'
     contact = new Contact
 
-  it 'has an _id property', (done) ->
-    contact.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     contact.should.have.property 'name'
     done()

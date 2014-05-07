@@ -6,10 +6,6 @@ describe 'Cart', ->
     Cart = require '../../schemas/cart'
     cart = new Cart
 
-  it 'has an _id property', (done) ->
-    cart.should.have.property '_id'
-    done()
-
   it 'has a customer reference', (done) ->
     cart.should.have.property 'customer'
     done()

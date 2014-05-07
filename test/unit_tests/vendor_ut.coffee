@@ -6,10 +6,6 @@ describe 'Vendor', ->
     Vendor = require '../../schemas/vendor'
     vendor = new Vendor
 
-  it 'has an _id property', (done) ->
-    vendor.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     vendor.should.have.property 'name'
     done()

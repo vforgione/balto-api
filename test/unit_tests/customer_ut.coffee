@@ -6,10 +6,6 @@ describe 'Customer', ->
     Customer = require '../../schemas/customer'
     customer = new Customer
 
-  it 'has an _id property', (done) ->
-    customer.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     customer.should.have.property 'name'
     done()

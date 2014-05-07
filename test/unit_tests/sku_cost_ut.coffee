@@ -9,10 +9,6 @@ describe 'SkuCost', ->
     sku_cost.sku = new Sku
     sku_cost.costs.push { cost: 12.34, qty: 10 }
 
-  it 'has an _id property', (done) ->
-    sku_cost.should.have.property '_id'
-    done()
-
   it 'has a sku reference', (done) ->
     sku_cost.should.have.property 'sku'
     done()
@@ -31,8 +27,8 @@ describe 'SkuCost', ->
       sku_cost.costs[0].should.have.property 'cost'
       done()
 
-    it 'has a qty property', (done) ->
-      sku_cost.costs[0].should.have.property 'qty'
+    it 'has a quantity property', (done) ->
+      sku_cost.costs[0].should.have.property 'quantity'
       done()
 
     it 'has a date property', (done) ->
