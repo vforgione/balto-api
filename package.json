@@ -18,6 +18,7 @@
   },
 
   "dependencies": {
+    "coffee-script": "*",
     "express": "3.5.2",
     "mangusu": "*",
     "mocha": "*",
