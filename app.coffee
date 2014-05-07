@@ -16,6 +16,10 @@ ContactResource = require './resources/contact_resource'
 PurchaseOrderResource = require './resources/purchase_order_resource'
 ReceivedShipmentResource = require './resources/received_shipment_resource'
 ProposalResource = require './resources/proposal_resource'
+CustomerResource = require './resources/customer_resource'
+CartResource = require './resources/cart_resource'
+SalesOrderResource = require './resources/sales_order_resource'
+ParcelResource = require './resources/parcel_resource'
 
 
 app = express()
@@ -50,6 +54,10 @@ ContactResource.make_routes app
 PurchaseOrderResource.make_routes app
 ReceivedShipmentResource.make_routes app
 ProposalResource.make_routes app
+CustomerResource.make_routes app
+CartResource.make_routes app
+SalesOrderResource.make_routes app
+ParcelResource.make_routes app
 
 
 http.createServer(app).listen app.get('port'), ->
