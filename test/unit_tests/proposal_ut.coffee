@@ -6,10 +6,6 @@ describe 'Proposal', ->
     Proposal = require '../../schemas/proposal'
     prop = new Proposal
 
-  it 'has an _id property', (done) ->
-    prop.should.have.property '_id'
-    done()
-
   it 'has a buyer property', (done) ->
     prop.should.have.property 'buyer'
     done()

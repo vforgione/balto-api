@@ -20,8 +20,7 @@ ContactSchema = new Schema {
     city: String
     state: String
     postal_code: String
-    country: String
-  }
+    country: String }
   history: [ { type: ObjectId, ref: Diff } ]
 }
 

@@ -16,28 +16,27 @@ DealSchema = new Schema {
   proposal: { type: ObjectId, ref: Proposal }
   offers: [ { type: ObjectId, ref: Offer } ]
   text: String
-  state: { type: String, required: true } #, enum: STATES }
+  state: { type: String, required: true, enum: ['Awaiting Shipment', 'Queued', 'Live', 'Done'] }
   starts_on: Date
   ends_on: Date
   after_ends_do: String
   is_subscribable: { type: Boolean, required: true, default: false }
   customer_chooses: { type: Boolean, required: true, default: true }
-  tags: [
-    {
-      internal: String
-      public: String
-    }
-  ]
+  tags: [ {
+    internal: String
+    public: String } ]
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
 
 DealSchema.virtual('price').get ->
-  offers = [offer.price for offer in @offers]
-  min = Math.min offers
-  max = Math.max offers
-  if min == max then "$#{min}"
-  else "$#{min} - $#{max}"
+  Offer.find { _id: { $in: @offers } }, (err, offers) ->
+    throw new Error err.message if err
+    prices = [offer.price for offer in offers]
+    min = Math.min prices
+    max = Math.max prices
+    if min == max then "$#{min}"
+    else "$#{min} - $#{max}"
 
 
 module.exports = mongoose.model 'Deal', DealSchema

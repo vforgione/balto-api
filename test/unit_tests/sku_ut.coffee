@@ -9,20 +9,12 @@ describe 'Sku', ->
     sku.vendors.push { vendor: new Vendor, number: "123" }
     sku.tags.push { internal: 'stuff', public: '' }
 
-  it 'has an _id property', (done) ->
-    sku.should.have.property '_id'
-    done()
-
   it 'has a number property', (done) ->
     sku.should.have.property 'number'
     done()
 
   it 'has a name property', (done) ->
     sku.should.have.property 'name'
-    done()
-
-  it 'has a uom object', (done) ->
-    sku.should.have.property 'uom'
     done()
 
   it 'has a brand reference', (done) ->
@@ -45,24 +37,14 @@ describe 'Sku', ->
     sku.should.have.property 'history'
     done()
 
-  describe 'Sku.uom', ->
-
-    it 'has a count property', (done) ->
-      sku.uom.should.have.property 'count'
-      done()
-
-    it 'has a unit_type property', (done) ->
-      sku.uom.should.have.property 'unit_type'
-      done()
-
   describe 'Sku.vendors', ->
 
     it 'has a vendor reference', (done) ->
       sku.vendors[0].should.have.property 'vendor'
       done()
 
-    it 'has a number property', (done) ->
-      sku.vendors[0].should.have.property 'number'
+    it 'has a vendor_sku_number property', (done) ->
+      sku.vendors[0].should.have.property 'vendor_sku_number'
       done()
 
   describe 'Sku.tags', ->

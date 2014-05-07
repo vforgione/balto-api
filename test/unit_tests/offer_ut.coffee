@@ -12,10 +12,6 @@ describe 'Offer', ->
     offer.products.push { product: prod, qty: 1 }
     offer.tags.push { internal: '', public: '' }
 
-  it 'has an _id property', (done) ->
-    offer.should.have.property '_id'
-    done()
-
   it 'has a products array', (done) ->
     offer.should.have.property 'products'
     done()
@@ -58,8 +54,8 @@ describe 'Offer', ->
       offer.products[0].should.have.property 'product'
       done()
 
-    it 'has a qty property', (done) ->
-      offer.products[0].should.have.property 'qty'
+    it 'has a quantity property', (done) ->
+      offer.products[0].should.have.property 'quantity'
       done()
 
   describe 'Offer.tags', ->

@@ -3,8 +3,8 @@ Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
 Diff = require './diff'
-Sku = require './sku'
 PurchaseOrder = require './purchase_order'
+Sku = require './sku'
 
 
 ReceivedShipmentSchema = new Schema {
@@ -12,10 +12,9 @@ ReceivedShipmentSchema = new Schema {
   purchase_order: { type: ObjectId, ref: PurchaseOrder, required: true }
   date: { type: Date, rquired: true, defualt: Date.now }
   note: String
-  line_items: [{
+  line_items: [ {
     sku: { type: ObjectId, ref: Sku, required: true }
-    qty: { type: Number required: true, min: 0 }
-  }]
+    quantity: { type: Number required: true, min: 0 } } ]
   history: { type: ObjectId, ref: Diff }
 }
 

@@ -6,10 +6,6 @@ describe 'Warehouse', ->
     Warehouse = require '../../schemas/warehouse'
     house = new Warehouse
 
-  it 'has an _id property', (done) ->
-    house.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     house.should.have.property 'name'
     done()

@@ -7,10 +7,6 @@ describe 'Brand', ->
     brand = new Brand
     brand.tags.push { internal: '', public: '' }
 
-  it 'has an _id property', (done) ->
-    brand.should.have.property '_id'
-    done()
-
   it 'has a name property', (done) ->
     brand.should.have.property 'name'
     done()

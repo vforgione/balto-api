@@ -8,10 +8,6 @@ describe 'ReceivedShipment', ->
     ship = new ReceivedShipment
     ship.line_items.push { sku: new Sku, qty: 1 }
 
-  it 'has an _id property', (done) ->
-    ship.should.have.property '_id'
-    done()
-
   it 'has a received_by property', (done) ->
     ship.should.have.property 'received_by'
     done()
@@ -42,6 +38,6 @@ describe 'ReceivedShipment', ->
       ship.line_items[0].should.have.property 'sku'
       done()
 
-    it 'has a qty property', (done) ->
-      ship.line_items[0].should.have.property 'qty'
+    it 'has a quantity property', (done) ->
+      ship.line_items[0].should.have.property 'quantity'
       done()
