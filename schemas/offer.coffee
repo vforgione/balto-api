@@ -12,12 +12,9 @@ OfferSchema = new Schema {
     quantity: { type: Number, required: true, min: 1, default: 1 } } ]
   weight: { type: Number, required: true }
   price: { type: Number, required: true }
-  tags: [
-    {
-      internal: String
-      public: String
-    }
-  ]
+  tags: [ {
+    internal: String
+    public: String } ]
   text: String
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]

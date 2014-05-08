@@ -10,5 +10,5 @@ WarehouseResource = require './warehouse_resource'
 
 
 module.exports = new Resource PurchaseOrder, 'purchase-orders', { refs: {
-  contact: ContactResource, destination: WarehouseResource, history: DiffResource, sku: SkuResource,
+  contact: ContactResource, destination: WarehouseResource, history: DiffResource, 'line_items.sku': SkuResource,
   deals: DealResource } }
