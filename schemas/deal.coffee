@@ -7,14 +7,11 @@ Offer = require './offer'
 Proposal = require './proposal'
 
 
-#STATES: [ 'In Development', 'Proposed', 'Rejected', 'Awaiting Shipment', 'Queued', 'Live', 'Done' ]
-
-
 DealSchema = new Schema {
   title: { type: String, required: true }
   buyer: { type: String, required: true }
   proposal: { type: ObjectId, ref: Proposal }
-  offers: [ { type: ObjectId, ref: Offer } ]
+  offers: [ { type: ObjectId, ref: Offer, required: true } ]
   text: String
   state: { type: String, required: true, enum: ['Awaiting Shipment', 'Queued', 'Live', 'Done'] }
   starts_on: Date
@@ -24,7 +21,8 @@ DealSchema = new Schema {
   customer_chooses: { type: Boolean, required: true, default: true }
   tags: [ {
     internal: String
-    public: String } ]
+    public: String
+    _id: false } ]
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]
 }

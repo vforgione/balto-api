@@ -13,6 +13,7 @@
   "bugs": "https://github.com/vforgione/balto-api/issues",
 
   "scripts": {
+    "postinstall": "npm update",
     "start": "./node_modules/.bin/coffee -c ./; node app.js",
     "test": "make test"
   },

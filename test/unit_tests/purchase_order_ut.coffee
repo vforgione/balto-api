@@ -8,8 +8,8 @@ describe 'PurchaseOrder', ->
     po = new PurchaseOrder
     po.line_items.push { sku: new Sku, qty: 1, unit_price: 1 }
 
-  it 'has a creator property', (done) ->
-    po.should.have.property 'creator'
+  it 'has a buyer property', (done) ->
+    po.should.have.property 'buyer'
     done()
 
   it 'has a contact reference', (done) ->

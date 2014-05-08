@@ -9,7 +9,8 @@ BrandSchema = new Schema {
   name: { type: String, required: true, unique: true }
   tags: [ {
     internal: String
-    public: String } ]
+    public: String
+    _id: false } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
 

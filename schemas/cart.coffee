@@ -9,7 +9,7 @@ Offer = require './offer'
 
 CartSchema = new Schema {
   customer: { type: ObjectId, ref: Customer, required: true }
-  state: { type: String, required: true }
+  checked_out: { type: Boolean, required: true, default: false }
   offers: [ { type: ObjectId, ref: Offer, required: true } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }

@@ -20,7 +20,8 @@ ParcelSchema = new Schema {
     city: String
     state: String
     postal_code: String
-    country: String }
+    country: String
+    _id: false }
   origin: { type: ObjectId, ref: Warehouse, required: true }
   history: [ { type: ObjectId, ref: Diff } ]
 }

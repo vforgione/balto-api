@@ -8,14 +8,16 @@ Diff = require './diff'
 CustomerSchema = new Schema {
   name: { type: String, required: true }
   email: { type: String, required: true }
-  address: {
+  addresses: [ {
+    name: String
     street1: String
     street2: String
     street3: String
     city: String
     state: String
     postal_code: String
-    country: String }
+    country: String
+    _id: false } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
 
