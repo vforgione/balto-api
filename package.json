@@ -1,7 +1,6 @@
 {
   "name": "balto-api",
   "version": "0.0.0",
-
   "private": true,
   "author": "Vince Forgione <v.forgione@gmail.com>",
   "license": "MIT",
@@ -11,19 +10,18 @@
   },
   "homepage": "https://github.com/vforgione/balto-api",
   "bugs": "https://github.com/vforgione/balto-api/issues",
-
   "scripts": {
     "postinstall": "npm update",
     "start": "./node_modules/.bin/coffee -c ./; node app.js",
     "test": "make test"
   },
-
   "dependencies": {
     "coffee-script": "*",
     "express": "3.5.2",
     "mangusu": "*",
     "mocha": "*",
     "mongoose": "^3.8.8",
+    "newrelic": "^1.5.3",
     "should": "*"
   }
 }

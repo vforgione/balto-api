@@ -1,3 +1,5 @@
+require 'newrelic'
+
 express = require 'express'
 http = require 'http'
 mongoose = require 'mongoose'
