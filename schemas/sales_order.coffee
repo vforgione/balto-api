@@ -8,7 +8,7 @@ Diff = require './diff'
 
 SalesOrderSchema = new Schema {
   cart: { type: ObjectId, ref: Cart, required: true }
-  state: { type: String, required: true }
+  state: { type: String, required: true, enum: ['Queued', 'Picked', 'Packed', 'Sent'] }
   tax: Number
   history: [ { type: ObjectId, ref: Diff } ]
 }

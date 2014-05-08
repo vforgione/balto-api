@@ -10,8 +10,8 @@ describe 'Cart', ->
     cart.should.have.property 'customer'
     done()
 
-  it 'has a state property', (done) ->
-    cart.should.have.property 'state'
+  it 'has a checked_out property', (done) ->
+    cart.should.have.property 'checked_out'
     done()
 
   it 'has an offers array', (done) ->

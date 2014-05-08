@@ -13,7 +13,7 @@ DogSchema = new Schema {
   breed: String
   birthday: Date
   weight: Number
-  gender: { type: String, enum: ['Male', 'Female'] }
+  gender: { type: String, enum: ['M', 'F'] }
   favorites: [ { type: ObjectId, ref: Product } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
