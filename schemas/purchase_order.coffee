@@ -10,7 +10,7 @@ Warehouse = require './warehouse'
 
 
 PurchaseOrderSchema = new Schema {
-  creator: { type: String, required: true }
+  buyer: { type: String, required: true }
   contact: { type: ObjectId, ref: Contact, required: true }
   destination: { type: ObjectId, ref: Warehouse, required: true }
   date: { type: Date, required: true, default: Date.now }

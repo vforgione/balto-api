@@ -10,7 +10,7 @@ Sku = require './sku'
 ReceivedShipmentSchema = new Schema {
   received_by: { type: String, required: true }
   purchase_order: { type: ObjectId, ref: PurchaseOrder, required: true }
-  date: { type: Date, rquired: true, defualt: Date.now }
+  date: { type: Date, required: true, default: Date.now }
   note: String
   line_items: [ {
     sku: { type: ObjectId, ref: Sku, required: true }
