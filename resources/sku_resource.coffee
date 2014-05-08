@@ -8,4 +8,4 @@ VendorResource = require './vendor_resource'
 
 
 module.exports = new Resource Sku, 'skus', { refs: {
-  brand: BrandResource, history: DiffResource, vendor: VendorResource } }
+  brand: BrandResource, history: DiffResource, 'vendors.vendor': VendorResource } }

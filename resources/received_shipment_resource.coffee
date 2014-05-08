@@ -8,4 +8,4 @@ PurchaseOrderResource = require './purchase_order_resource'
 
 
 module.exports = new Resource ReceivedShipment, 'received-shipments', { refs: {
-  history: DiffResource, purchase_order: PurchaseOrderResource, sku: SkuResource } }
+  history: DiffResource, purchase_order: PurchaseOrderResource, 'line_items.sku': SkuResource } }
