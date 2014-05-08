@@ -25,7 +25,8 @@ PurchaseOrderSchema = new Schema {
     sku: { type: ObjectId, ref: Sku, required: true }
     quantity: { type: Number, required: true }
     unit_price: { type: Number, required: true }
-    discount: String } ]
+    discount: String
+    _id: false } ]
   history: [ { type: ObjectId, ref: Diff } ]
 }
 

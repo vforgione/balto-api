@@ -14,7 +14,8 @@ ReceivedShipmentSchema = new Schema {
   note: String
   line_items: [ {
     sku: { type: ObjectId, ref: Sku, required: true }
-    quantity: { type: Number required: true, min: 0 } } ]
+    quantity: { type: Number required: true, min: 0 }
+    _id: false } ]
   history: { type: ObjectId, ref: Diff }
 }
 

@@ -9,12 +9,14 @@ Product = require './product'
 OfferSchema = new Schema {
   products: [ {
     product: { type: ObjectId, ref: Product, required: true }
-    quantity: { type: Number, required: true, min: 1, default: 1 } } ]
+    quantity: { type: Number, required: true, min: 1, default: 1 }
+    _id: false } ]
   weight: { type: Number, required: true, min: 1 }
   price: { type: Number, required: true }
   tags: [ {
     internal: String
-    public: String } ]
+    public: String
+    _id: false } ]
   text: String
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]

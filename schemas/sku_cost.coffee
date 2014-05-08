@@ -11,7 +11,8 @@ SkuCostSchema = new Schema {
   costs: [ {
     cost: { type: Number, required: true, default: 0 }
     quantity: { type: Number, required: true, default: 1 }
-    date: { type: Date, required: true, default: Date.now } } ]
+    date: { type: Date, required: true, default: Date.now }
+    _id: false } ]
   position: { type: Number, required: true, default: 0 }
   history: [ { type: ObjectId, ref: Diff } ]
 }

@@ -21,7 +21,8 @@ DealSchema = new Schema {
   customer_chooses: { type: Boolean, required: true, default: true }
   tags: [ {
     internal: String
-    public: String } ]
+    public: String
+    _id: false } ]
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]
 }

@@ -18,7 +18,8 @@ SkuSchema = new Schema {
     _id: false } ]
   tags: [ {
     internal: String
-    public: String } ]
+    public: String
+    _id: false } ]
   attributes: Mixed
   images: [ String ]
   history: [ { type: ObjectId, ref: Diff } ]
