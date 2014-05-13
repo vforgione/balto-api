@@ -43,4 +43,4 @@ OfferSchema.virtual('available_for_sale').get ->
     parseInt Math.min [ Math.floor(p.available_for_sale / pq[p._id]) for p in products ]
 
 
-module.exports = mongoose.model 'Offer', OfferSchema
+module.exports = mongoose.model('Offer', OfferSchema)

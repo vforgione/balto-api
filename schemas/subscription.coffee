@@ -19,4 +19,4 @@ SubscriptionSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Subscription', SubscriptionSchema
+module.exports = mongoose.model('Subscription', SubscriptionSchema)

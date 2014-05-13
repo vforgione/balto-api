@@ -27,4 +27,4 @@ ParcelSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Parcel', ParcelSchema
+module.exports = mongoose.model('Parcel', ParcelSchema)

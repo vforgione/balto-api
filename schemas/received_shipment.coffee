@@ -20,4 +20,4 @@ ReceivedShipmentSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'ReceivedShipment', ReceivedShipmentSchema
+module.exports = mongoose.model('ReceivedShipment', ReceivedShipmentSchema)

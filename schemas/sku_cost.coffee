@@ -18,4 +18,4 @@ SkuCostSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'SkuCost', SkuCostSchema
+module.exports = mongoose.model('SkuCost', SkuCostSchema)

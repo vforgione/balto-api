@@ -1,70 +1,73 @@
 require 'newrelic'
 
+
 express = require 'express'
-http = require 'http'
-mongoose = require 'mongoose'
-
-DiffResource = require './resources/diff_resource'
-BrandResource = require './resources/brand_resource'
-VendorResource = require './resources/vendor_resource'
-SkuResource = require './resources/sku_resource'
-SkuCostResource = require './resources/sku_cost_resource'
-SkuQuantityResource = require './resources/sku_quantity_resource'
-ProductResource = require './resources/product_resource'
-OfferResource = require './resources/offer_resource'
-DealResource = require './resources/deal_resource'
-WarehouseResource = require './resources/warehouse_resource'
-ContactResource = require './resources/contact_resource'
-PurchaseOrderResource = require './resources/purchase_order_resource'
-ReceivedShipmentResource = require './resources/received_shipment_resource'
-ProposalResource = require './resources/proposal_resource'
-CustomerResource = require './resources/customer_resource'
-CartResource = require './resources/cart_resource'
-SalesOrderResource = require './resources/sales_order_resource'
-ParcelResource = require './resources/parcel_resource'
-SubscriptionResource = require './resources/subscription_resource'
-DogResource = require './resources/dog_resource'
-
+logging = require 'morgan'
+body_parser = require 'body-parser'
+method_override = require 'method-override'
 
 app = express()
+app.set 'port', process.env.PORT or 3000
+app.use logging()
+app.use body_parser()
+app.use method_override()
 
+
+mongoose = require 'mongoose'
 
 mongoose.connect process.env.MONGOHQ_URL or 'mongodb://localhost:27017/balto-api-dev'
 
 
-app.set 'port', process.env.PORT or 3000
+brands = require './resources/brand_resource'
+carts = require './resources/cart_resource'
+contacts = require './resources/contact_resource'
+customers = require './resources/customer_resource'
+deals = require './resources/deal_resource'
+diffs = require './resources/diff_resource'
+dogs = require './resources/dog_resource'
+offers = require './resources/offer_resource'
+parcels = require './resources/parcel_resource'
+products = require './resources/product_resource'
+proposals = require './resources/proposal_resource'
+purchase_orders = require './resources/purchase_order_resource'
+received_shipments = require './resources/received_shipment_resource'
+sales_orders = require './resources/sales_order_resource'
+sku_costs = require './resources/sku_cost_resource'
+sku_quantities = require './resources/sku_quantity_resource'
+skus = require './resources/sku_resource'
+subscriptions = require './resources/subscription_resource'
+vendors = require './resources/vendor_resource'
+warehouses = require './resources/warehouse_resource'
 
 
-app.use express.logger()
-app.use express.json()
-app.use express.urlencoded()
-app.use express.methodOverride()
-app.use app.router
-app.use express.errorHandler()
+Api = require('fulton').Api
+
+api = new Api()
+api.register brands
+api.register carts
+api.register contacts
+api.register customers
+api.register deals
+api.register diffs
+api.register dogs
+api.register offers
+api.register parcels
+api.register products
+api.register proposals
+api.register purchase_orders
+api.register received_shipments
+api.register sales_orders
+api.register sku_costs
+api.register sku_quantities
+api.register skus
+api.register subscriptions
+api.register vendors
+api.register warehouses
+
+api.make_routes app
 
 
-# routes
-DiffResource.make_routes app
-BrandResource.make_routes app
-VendorResource.make_routes app
-SkuResource.make_routes app
-SkuCostResource.make_routes app
-SkuQuantityResource.make_routes app
-ProductResource.make_routes app
-OfferResource.make_routes app
-DealResource.make_routes app
-WarehouseResource.make_routes app
-ContactResource.make_routes app
-PurchaseOrderResource.make_routes app
-ReceivedShipmentResource.make_routes app
-ProposalResource.make_routes app
-CustomerResource.make_routes app
-CartResource.make_routes app
-SalesOrderResource.make_routes app
-ParcelResource.make_routes app
-SubscriptionResource.make_routes app
-DogResource.make_routes app
-
+http = require 'http'
 
 http.createServer(app).listen app.get('port'), ->
   console.log "express server listening on port #{app.get('port')}"

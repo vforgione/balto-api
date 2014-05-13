@@ -24,4 +24,4 @@ ProductSchema.virtual('available_for_sale').get ->
     parseInt Math.floor sq.available_for_sale / @skus_per
 
 
-module.exports = mongoose.model 'Product', ProductSchema
+module.exports = mongoose.model('Product', ProductSchema)

@@ -57,4 +57,4 @@ PurchaseOrderSchema.virtual('total').get ->
   subtotal + tax_cost
 
 
-module.exports = mongoose.model 'PurchaseOrder', PurchaseOrderSchema
+module.exports = mongoose.model('PurchaseOrder', PurchaseOrderSchema)

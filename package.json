@@ -16,11 +16,15 @@
     "test": "make test"
   },
   "dependencies": {
+    "body-parser": "^1.2.0",
     "coffee-script": "*",
     "express": "3.5.2",
+    "fulton": "0.0.1",
     "mangusu": "*",
+    "method-override": "^1.0.0",
     "mocha": "*",
     "mongoose": "^3.8.8",
+    "morgan": "^1.0.1",
     "newrelic": "^1.5.3",
     "should": "*"
   }

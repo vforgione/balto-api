@@ -20,4 +20,4 @@ WarehouseSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Warehouse', WarehouseSchema
+module.exports = mongoose.model('Warehouse', WarehouseSchema)

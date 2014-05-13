@@ -18,4 +18,4 @@ SkuQuantitySchema.virtual('available_for_sale').get ->
   @on_shelf - @in_carts - @to_be_picked
 
 
-module.exports = mongoose.model 'SkuQuantity', SkuQuantitySchema
+module.exports = mongoose.model('SkuQuantity', SkuQuantitySchema)

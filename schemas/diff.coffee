@@ -12,4 +12,4 @@ DiffSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Diff', DiffSchema
+module.exports = mongoose.model('Diff', DiffSchema)
