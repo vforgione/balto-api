@@ -1,4 +1,4 @@
-Resource = require 'mangusu'
+Resource = require('fulton').Resource
 
 PurchaseOrder = require '../schemas/purchase_order'
 

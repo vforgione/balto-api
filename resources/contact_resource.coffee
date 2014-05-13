@@ -1,4 +1,4 @@
-Resource = require 'mangusu'
+Resource = require('fulton').Resource
 
 Contact = require '../schemas/contact'
 

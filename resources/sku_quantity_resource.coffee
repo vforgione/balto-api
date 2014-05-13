@@ -1,4 +1,4 @@
-Resource = require 'mangusu'
+Resource = require('fulton').Resource
 
 SkuQuantity = require '../schemas/sku_quantity'
 

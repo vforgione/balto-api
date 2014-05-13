@@ -19,4 +19,4 @@ DogSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Dog', DogSchema
+module.exports = mongoose.model('Dog', DogSchema)

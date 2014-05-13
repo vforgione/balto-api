@@ -26,4 +26,4 @@ SkuSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Sku', SkuSchema
+module.exports = mongoose.model('Sku', SkuSchema)

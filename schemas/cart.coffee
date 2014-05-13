@@ -21,4 +21,4 @@ CartSchema.virtual('subtotal').get ->
       t.price + s.price
 
 
-module.exports = mongoose.model 'Cart', CartSchema
+module.exports = mongoose.model('Cart', CartSchema)

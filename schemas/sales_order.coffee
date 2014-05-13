@@ -25,4 +25,4 @@ SalesOrderSchema.virtual('total').get ->
     subtotal + tax_amount
 
 
-module.exports = mongoose.model 'SalesOrder', SalesOrderSchema
+module.exports = mongoose.model('SalesOrder', SalesOrderSchema)

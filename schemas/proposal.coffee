@@ -22,4 +22,4 @@ ProposalSchema = new Schema {
 }
 
 
-module.exports = mongoose.model 'Proposal', ProposalSchema
+module.exports = mongoose.model('Proposal', ProposalSchema)

@@ -37,4 +37,4 @@ DealSchema.virtual('price').get ->
     else "$#{min} - $#{max}"
 
 
-module.exports = mongoose.model 'Deal', DealSchema
+module.exports = mongoose.model('Deal', DealSchema)
