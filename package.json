@@ -12,20 +12,28 @@
   "bugs": "https://github.com/vforgione/balto-api/issues",
   "scripts": {
     "postinstall": "npm update",
-    "start": "./node_modules/.bin/coffee -c ./; node app.js",
+    "start": "./node_modules/.bin/coffee -c ./; node index.js",
     "test": "make test"
   },
-  "dependencies": {
-    "body-parser": "^1.2.0",
-    "coffee-script": "*",
-    "express": "3.5.2",
-    "fulton": "0.0.1",
-    "mangusu": "*",
-    "method-override": "^1.0.0",
+  "devDependencies": {
     "mocha": "*",
-    "mongoose": "^3.8.8",
-    "morgan": "^1.0.1",
-    "newrelic": "^1.5.3",
     "should": "*"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.2.0",
+    "coffee-script": "*",
+    "cookie-parser": "1.1.0",
+    "express": "4.2.0",
+    "express-session": "1.1.0",
+    "fulton": "*",
+    "method-override": "1.0.0",
+    "mongoose": "3.8.8",
+    "morgan": "1.0.1",
+    "newrelic": "1.5.3",
+    "passport": "0.2.0",
+    "passport-facebook": "1.0.3",
+    "passport-google": "0.3.0",
+    "passport-local": "1.0.0"
   }
 }
