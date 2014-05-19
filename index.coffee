@@ -15,58 +15,6 @@ mongoose = require 'mongoose'
 mongoose.connect process.env.MONGOHQ_URL or 'mongodb://localhost:27017/balto-api-dev'
 
 
-# import passport
-passport = require 'passport'
-
-# passport initialization
-serialize_user = require('./auth/authentication/methods').serialize_user
-deserialize_user = require('./auth/authentication/methods').deserialize_user
-
-facebook_strategy = require('./auth/authentication/strategies/facebook')
-google_strategy = require('./auth/authentication/strategies/google')
-local_signup = require('./auth/authentication/strategies/local').local_signup
-local_strategy = require('./auth/authentication/strategies/local').local_strategy
-
-passport.serializeUser serialize_user
-passport.deserializeUser deserialize_user
-passport.use facebook_strategy
-passport.use google_strategy
-passport.use 'local-signup', local_signup
-passport.use 'local-strategy', local_strategy
-
-# passport utilization
-app.use passport.initialize()
-app.use passport.session()
-
-
-# add csrf token to header
-app.use (req, res, next) ->
-  res.setHeader 'X-CSRF-TOKEN', req.csrfToken()
-  next()
-
-
-# regular routes
-app.get '/login', (req, res) ->
-  respond.ok res, JSON.stringify({
-    facebook: '/auth/facebook'
-    google: '/auth/google'
-  })
-
-# authentication routes
-app.get '/auth/facebook', passport.authenticate('facebook'), (req, res) ->
-
-app.get '/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) ->
-  respond.ok res, req.user
-
-app.get '/auth/google', passport.authenticate('google'), (req, res) ->
-
-app.get '/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) ->
-  respond.ok res, req.user
-
-app.post '/auth/local/signup', passport.authenticate('local-signup', { failureRedirect: '/auth/local/signup', failureFlash: true } )
-
-app.post '/auth/local/login', passport.authenticate('local-strategy', { failureRedirect: '/auth/local/login' } )
-
 # api and resource imports
 Api = require('fulton').Api
 brands = require './resources/brand_resource'
@@ -116,8 +64,7 @@ api.register vendors
 api.register warehouses
 
 # publish api routes
-check_authentication = require('./auth/authentication/methods').check_authentication
-api.make_routes app, check_authentication
+api.make_routes app
 
 
 # main loop
