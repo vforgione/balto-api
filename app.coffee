@@ -1,9 +1,13 @@
 express = require 'express'
-logging = require 'morgan'
+
 body_parser = require 'body-parser'
+cookies = require 'cookie-parser'
+logging = require 'morgan'
 method_override = require 'method-override'
 session = require 'express-session'
-cookies = require 'cookie-parser'
+
+csurf = require 'csurf'
+lusca = require 'lusca'
 
 SESSION_SECRET = process.env.SECRET or 'vince is awesome'
 
@@ -14,6 +18,9 @@ app.use cookies()
 app.use body_parser()
 app.use method_override()
 app.use session({secret: SESSION_SECRET})
+app.use csurf()
+app.use lusca.xframe('SAMEORIGIN')
+app.use lusca.xssProtection(true)
 
 
 module.exports = app
