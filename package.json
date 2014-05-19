@@ -11,28 +11,29 @@
   "homepage": "https://github.com/vforgione/balto-api",
   "bugs": "https://github.com/vforgione/balto-api/issues",
   "scripts": {
-    "postinstall": "npm update",
     "start": "node index.js",
     "test": "make test"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.2.0",
-    "bunyan": "^0.22.3",
     "coffee-script": "*",
     "cookie-parser": "1.1.0",
     "csurf": "1.2.0",
+    "deep-diff": "0.1.7",
     "express": "4.2.0",
     "express-session": "1.1.0",
     "fulton": "*",
     "lusca": "1.0.0",
     "method-override": "1.0.0",
+    "mocha": "1.19.0",
     "mongoose": "3.8.8",
     "morgan": "1.0.1",
     "newrelic": "1.5.3",
     "passport": "0.2.0",
     "passport-facebook": "1.0.3",
     "passport-google": "0.3.0",
-    "passport-local": "1.0.0"
+    "passport-local": "1.0.0",
+    "should": "3.3.1"
   }
 }
