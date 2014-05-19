@@ -39,6 +39,12 @@ app.use passport.initialize()
 app.use passport.session()
 
 
+# add csrf token to header
+app.use (req, res, next) ->
+  res.setHeader 'X-CSRF-TOKEN', req.csrfToken()
+  next()
+
+
 # regular routes
 app.get '/login', (req, res) ->
   respond.ok res, JSON.stringify({
