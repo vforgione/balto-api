@@ -11,6 +11,7 @@
   "homepage": "https://github.com/vforgione/balto-api",
   "bugs": "https://github.com/vforgione/balto-api/issues",
   "scripts": {
+    "postinstall": "coffee --compile ./",
     "start": "node index.js",
     "test": "mocha"
   },
