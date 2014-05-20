@@ -15,6 +15,41 @@ mongoose = require 'mongoose'
 mongoose.connect process.env.MONGOHQ_URL or 'mongodb://localhost:27017/balto-api-dev'
 
 
+# import passport
+passport = require 'passport'
+
+# passport initialization
+serialize_user = require('./auth/authentication/methods').serialize_user
+deserialize_user = require('./auth/authentication/methods').deserialize_user
+
+facebook_strategy = require('./auth/authentication/facebook_strategy')
+google_strategy = require('./auth/authentication/google_strategy')
+
+passport.serializeUser serialize_user
+passport.deserializeUser deserialize_user
+passport.use facebook_strategy
+passport.use google_strategy
+
+# passport utilization
+app.use passport.initialize()
+app.use passport.session()
+
+
+# authentication routes
+app.get '/login', (req, res) ->
+  respond.ok res, { facebook: '/auth/facebook', google: '/auth/google' }
+
+app.get '/auth/facebook', passport.authenticate('facebook'), (req, res) ->
+
+app.get '/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) ->
+  respond.ok res, req.user
+
+app.get '/auth/google', passport.authenticate('google'), (req, res) ->
+
+app.get '/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) ->
+  respond.ok res, req.user
+
+
 # api and resource imports
 Api = require('fulton').Api
 brands = require './resources/brand_resource'
